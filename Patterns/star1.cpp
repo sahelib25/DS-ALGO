@@ -1,4 +1,10 @@
 // Online C++ compiler to run C++ program online
+// Print the following pattern
+// * * * * 
+// * * *
+// * *
+// *
+
 #include <iostream>
 using namespace std;
 
@@ -13,17 +19,14 @@ int main() {
     while(row<=n)
     {
         col = 1;
-       char start = 'A' + row - 1; // Calculate the first character to be printed in each row
-       while(col<=n)
+       while(col<=n - row +1)
        {
            
-           cout<< start;
-           start = start + 1;
+           cout<<"*";
            col = col +1;
        }
-       
-       cout << endl;
-       row = row + 1;
+        cout << endl;
+        row = row +1;
 
     }
 
