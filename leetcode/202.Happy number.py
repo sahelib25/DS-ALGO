@@ -15,6 +15,8 @@ class Solution:
                 digit = int(i)
                 ans += digit ** 2
 
+            # 1 liner for loop : n = sum((int(digit) ** 2) for digit in num_to_str)
+
             n = ans
             
         return True # When n becomes 1
