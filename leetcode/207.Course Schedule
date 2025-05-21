@@ -1,0 +1,30 @@
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # Detecting a cycle
+        # Topological sort + BFS
+        # Kahn's algorithm
+
+        # Step 1: Build graph and in-degree list
+        adj_list = [[] for _ in range(numCourses)]
+        in_degrees = [0] * numCourses
+
+        for dest,src in prerequisites:
+            adj_list[src].append(dest)
+            in_degrees[dest] += 1
+    
+        # Step 2: Add courses with zero in-degree to the queue
+        q = deque(int(course) for course in range(numCourses) if in_degrees[course]==0)
+        count = 0
+
+        # Step 3: Process nodes with zero in-degree
+        while q:
+            p = q.popleft()
+            count += 1
+            for neighbour in adj_list[p]:
+                in_degrees[neighbour] -= 1
+                if in_degrees[neighbour] == 0:
+                    q.append(neighbour)
+
+        return count == numCourses
+
+        
