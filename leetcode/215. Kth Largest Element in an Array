@@ -1,0 +1,5 @@
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        
+        # heapq.nlargest returns a list of the k largest elements
+        return heapq.nlargest(k, nums)[-1] # Last element is the kth largest
